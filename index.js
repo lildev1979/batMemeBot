@@ -82,7 +82,7 @@ client.on('messageCreate', async msg => {
             .setTitle('Have a BatMeme '+ msg.author.username +'! ')
             .setDescription("Memes provided by @powerhungryUK")
             .setImage(`attachment://${filenm}`)
-            .setThumbnail(`attachment://Happy.gif`);
+            .setThumbnail(`attachment://${filenm2}`);
             //console.log(msg);
             msg.channel.send({ embeds: [exampleEmbed], files: [file, file2] });
             break;
