@@ -64,14 +64,17 @@ client.on('messageCreate', async msg => {
     //console.log(msg.author);
     switch (msg.content.toLowerCase()) {
         case 'batmeme':
-            var filenm =  `${MemeArray[getRandomInt()]}.JPG`
+            var filenm =  `${MemeArray[getRandomInt()]}.jpg`
+            var filenm2 = ""
             const file = new MessageAttachment(`./memes/${filenm}`);
+            const file2 = new MessageAttachment(`./gifs/Happy.gif`);
             const exampleEmbed = new MessageEmbed()
             .setTitle('Have a BatMeme '+ msg.author.username +'! ')
             .setDescription("Memes provided by @powerhungryUK")
-            .setImage(`attachment://${filenm}`);
+            .setImage(`attachment://${filenm}`)
+            .setThumbnail(`attachment://Happy.gif`);
             //console.log(msg);
-            msg.channel.send({ embeds: [exampleEmbed], files: [file] });
+            msg.channel.send({ embeds: [exampleEmbed], files: [file, file2] });
             break;
         case '/website':
                 var filenm =  `${MemeArray[getRandomInt()]}.JPG`
