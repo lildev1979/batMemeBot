@@ -17,10 +17,20 @@ const MemeArray = [
 "ngmi",
 "swigscarling"
 ];
-
+const GifArray = [
+    "Happy",
+    "Hungry",
+    "Playful",
+    "Sleepy",
+    "Sad"
+    ];
 
 function getRandomInt() {
     return Math.floor(Math.random() * MemeArray.length);
+  }
+
+  function getRandomState() {
+    return Math.floor(Math.random() * GifArray.length);
   }
 async function getPrice(){
     const res = await axios.get(priceUri);
@@ -65,9 +75,9 @@ client.on('messageCreate', async msg => {
     switch (msg.content.toLowerCase()) {
         case 'batmeme':
             var filenm =  `${MemeArray[getRandomInt()]}.jpg`
-            var filenm2 = ""
+            var filenm2 = `${GifArray[getRandomState()]}.gif`
             const file = new MessageAttachment(`./memes/${filenm}`);
-            const file2 = new MessageAttachment(`./gifs/Happy.gif`);
+            const file2 = new MessageAttachment(`./gifs/${filenm2}`);
             const exampleEmbed = new MessageEmbed()
             .setTitle('Have a BatMeme '+ msg.author.username +'! ')
             .setDescription("Memes provided by @powerhungryUK")
